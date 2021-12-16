@@ -21,8 +21,13 @@ It contains the classes Files, Playlists and Search which contains methods and o
 Contains some style, very basic one, for the Media Organiser. It also contains the style for jquery.multiselect.css that I used to display a multiselect list of files with checkboxes
 
 
+**docs/**
+Contains the PDF with the project specs and the word document with my analysis, design and tests
+
+
 **js/**
 Contains jquery.multiselect.js that I used to display a multiselect list of files with checkboxes
+
 
 **uploads/**
 Simply needed as in the code is used as file path to upload files
