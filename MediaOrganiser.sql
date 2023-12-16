@@ -38,6 +38,7 @@ CREATE TABLE `Categories` (
 --
 
 INSERT INTO `Categories` (`categoryID`, `category`) VALUES
+(0, 'None'),
 (1, 'Rock'),
 (2, 'Blues'),
 (3, 'Country'),
