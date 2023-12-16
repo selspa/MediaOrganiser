@@ -9,7 +9,7 @@ require_once('ADODB.php');
 
 class Playlists {
 
- // Insert a new playlist in Playlists
+  // Insert a new playlist in Playlists
   public function insertNewPlaylistInDB($playlistTitle){
 
      global $db;
@@ -66,7 +66,7 @@ class Playlists {
 
       $uncheckedFiles = array_diff($filesInDB, $filesID);
 
-      //print_r($uncheckedFiles);
+    //  print_r($uncheckedFiles);
 
       foreach($filesID as $fileID){
         if(!in_array($fileID, $filesInDB)){
@@ -85,7 +85,17 @@ class Playlists {
       }
       }
 
-    } else {
+    } elseif($result->RecordCount() == 0 && $filesID != []){
+
+      $sql = "INSERT INTO PlaylistsFiles (id, fileID, playlistID, orderID) VALUES (NULL, ?, ?, NULL)";
+
+      foreach($filesID as $fileID){
+
+        $db->Execute($sql,[$db->addQ($fileID), $db->addQ($playlistID)]);
+
+      }
+
+  } else {
       print "Error - you need to select a file";
     }
 
@@ -172,6 +182,7 @@ class Playlists {
      print "You need to select a file";
    }
   }
+
 
 
 } // end of class Playlists
