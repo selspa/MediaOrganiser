@@ -25,6 +25,8 @@ require_once('classes/Playlists.php');
 $f = new App\Files;
 $p = new App\Playlists;
 
+$playlists = $p->selectPlaylists();
+
 ?>
 
 <header>
@@ -59,8 +61,6 @@ $p = new App\Playlists;
         <option name="select" value="">Please select</option>
 
 <?php
-
-          $playlists = $p->selectPlaylists();
 
           foreach($playlists as $playlist){
               print "<option name='".$playlist['playlist']."' value='".$playlist['playlistID']."' >".$playlist['playlist']."</option>";
