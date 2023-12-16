@@ -52,9 +52,10 @@ Kint::trace();*/
 $f = new App\Files;
 $p = new App\Playlists;
 
+
 if(isset($_POST["add-playlist"])){
 
-    $playlists = $p->selectPlaylists();
+  $playlists = $p->selectPlaylists();
 
   foreach ($playlists as $playlist){
     $playlistsTitles[] = $playlist['playlist'];
@@ -76,12 +77,12 @@ if(isset($_POST["add-playlist"])){
                 <option name="select" value="">Please select</option>
 
         <?php
-
-                  foreach($playlists as $playlist){
-                    if($playlistTitle == $playlist['playlist']){
-                      print "<option name='".$playlist['playlist']."' value='".$playlist['playlistID']."' selected>".$playlist['playlist']."</option>";
+          $playlists = $p->selectPlaylists();
+                  foreach($playlists as $p){
+                    if($playlistTitle == $p['playlist']){
+                      print "<option name='".$p['playlist']."' value='".$p['playlistID']."' selected>".$p['playlist']."</option>";
                     } else {
-                      print "<option name='".$playlist['playlist']."' value='".$playlist['playlistID']."' >".$playlist['playlist']."</option>";
+                      print "<option name='".$p['playlist']."' value='".$p['playlistID']."' >".$p['playlist']."</option>";
                     }
                 }
 
@@ -143,10 +144,10 @@ if(isset($_POST["add-playlist"])){
 
          <?php
 
-             $playlists = $p->selectPlaylists();
+              $playlists = $p->selectPlaylists();
 
-                   foreach($playlists as $playlist){
-                       print "<option name='".$playlist['playlist']."' value='".$playlist['playlistID']."' >".$playlist['playlist']."</option>";
+                   foreach($playlists as $pl){
+                       print "<option name='".$pl['playlist']."' value='".$pl['playlistID']."' >".$pl['playlist']."</option>";
                  }
 
 
@@ -202,12 +203,10 @@ if(isset($_POST["add-playlist"])){
 
 <?php
 
+        //  $playlists = $p->selectPlaylists();
 
-
-          $playlists = $p->selectPlaylists();
-
-          foreach($playlists as $playlist){
-              print "<option name='".$playlist['playlist']."' value='".$playlist['playlistID']."' >".$playlist['playlist']."</option>";
+          foreach($playlists as $pla){
+              print "<option name='".$pla['playlist']."' value='".$pla['playlistID']."' >".$pla['playlist']."</option>";
         }
 
 
@@ -252,12 +251,12 @@ if(isset($_POST["add-playlist"])){
 
 print "<table id='added-playlists'><tr><th>Playlists</th><th>Actions</th></tr>";
 
-  foreach($playlists as $pl){
+  foreach($playlists as $play){
 
     print "
      <tr>
-         <td><a href='playlist.php?playlist=".$pl['playlist']."&playlistID=".$pl['playlistID']."' >".$pl['playlist']."</a></td>
-         <td><a href='edit-playlist.php?playlistID=".$pl['playlistID']."&playlist=".$pl['playlist']."'>Edit </a>  | <a href='delete-playlist.php?playlistID=".$pl['playlistID']."&playlist=".$pl['playlist']."'>Delete</a></td>
+         <td><a href='playlist.php?playlist=".$play['playlist']."&playlistID=".$play['playlistID']."' >".$play['playlist']."</a></td>
+         <td><a href='edit-playlist.php?playlistID=".$play['playlistID']."&playlist=".$play['playlist']."'>Edit </a>  | <a href='delete-playlist.php?playlistID=".$play['playlistID']."&playlist=".$play['playlist']."'>Delete</a></td>
      </tr>"
      ;
 

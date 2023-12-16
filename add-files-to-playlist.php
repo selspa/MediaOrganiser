@@ -58,7 +58,7 @@ if(isset($_POST["add-files"])){
     if(isset($_POST['files']) && $_POST['files'] != []){
         $filesID = $_POST['files'];
 
-      //  print_r($filesID);
+        print_r($filesID);
 
         if(isset($_POST['playlist']) && $_POST['playlist']!=""){
         $playlistID = $_POST['playlist'];
